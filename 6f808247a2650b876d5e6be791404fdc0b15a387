@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2bd36eb1_4985e7e1",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-17T16:58:29Z",
+      "side": 1,
+      "message": "nit: What about websession-broker-based or something similar? websession-broker sounds like a broker for websessions. Also you correctly called the implementation class \"BrokerBasedWebSession$Module\"",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3382d50_498df04e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
         "patchSetId": 1
@@ -18,6 +41,52 @@
         "startChar": 65,
         "endLine": 44,
         "endChar": 86
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6dc81ad_bbdca2c4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-17T16:58:29Z",
+      "side": 1,
+      "message": "not: Here we skip all the messages which are not websession replated, right? Should the message be something like: \"Skipping not a web session message\" ?",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 54
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "661d4475_45a37ad3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-17T16:58:29Z",
+      "side": 1,
+      "message": "What about the REMOVE event? Why don\u0027t we need to propagate them?",
+      "range": {
+        "startLine": 151,
+        "startChar": 15,
+        "endLine": 151,
+        "endChar": 24
       },
       "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
