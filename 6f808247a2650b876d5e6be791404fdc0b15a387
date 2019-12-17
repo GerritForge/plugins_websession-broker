@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3382d50_498df04e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-17T14:49:55Z",
+      "side": 1,
+      "message": "Current Gerrit implementation is using WebSessionManager.Val to hold the details about the session. Unfortunately the way how this class is implemented is limiting the way how we can use it with our code. The biggest problem is with json serialisation:\n* all the fields are marked as private and transient(they are skipped by json serializer)\n* some getters are missing, some are in default scope(I was thinking about writing TransportVal class just for json serialisation)\n* class is marked as final so we cannot extend it and make json serializable\n\nOnly thing which works is standard java serialization(websession-flatfile is using it as well).\n\nTo fix this issue we have to change gerrit core. \n\nAnother way is to use workaround. Instead of serialising to json I\u0027m serialising Val object to byte array(with java serialisation) and passing it as a payload to the EventMessage. This event is implemented in WebSessionEvent class.\n\nI\u0027m not a huge fan of this solution so if you have any opinion please share it.",
+      "range": {
+        "startLine": 44,
+        "startChar": 65,
+        "endLine": 44,
+        "endChar": 86
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbd610d1_003e867b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-17T14:49:55Z",
+      "side": 1,
+      "message": "Here we are expecting instanceId, but instance id is a multi-site functionality. I remember discussion that it would be nice to have it in gerrit core. I\u0027m happy to propose that change to gerrit core. We can also create small lib with this functionality and share it between multi-site and websession-broker.\n\nFor now it\u0027s not a big problem because we do not generate new events based on received one so we will not get into the loop.",
+      "range": {
+        "startLine": 163,
+        "startChar": 18,
+        "endLine": 163,
+        "endChar": 35
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3043c30_ffb0a9a9",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-17T14:49:55Z",
+      "side": 1,
+      "message": "Similar problem to json serialization. Val class is writen in that way that it\u0027s really hard to write unit tests for a web-session cache. Constructor of Val is protected and all factory methods in WebSessionManager are protected as well. The only was I figure out is to actually populate the cache and get the value from there. Websession-flatfile is following similar approach",
+      "range": {
+        "startLine": 131,
+        "startChar": 14,
+        "endLine": 131,
+        "endChar": 23
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
