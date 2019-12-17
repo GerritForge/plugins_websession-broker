@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7e9f81cb_43bad0c3",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-17T18:06:35Z",
+      "side": 1,
+      "message": "mmm..nothing easy comes into my mind.",
+      "parentUuid": "e3382d50_498df04e",
+      "range": {
+        "startLine": 44,
+        "startChar": 65,
+        "endLine": 44,
+        "endChar": 86
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6dc81ad_bbdca2c4",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
         "patchSetId": 1
@@ -105,6 +129,30 @@
       "writtenOn": "2019-12-17T14:49:55Z",
       "side": 1,
       "message": "Here we are expecting instanceId, but instance id is a multi-site functionality. I remember discussion that it would be nice to have it in gerrit core. I\u0027m happy to propose that change to gerrit core. We can also create small lib with this functionality and share it between multi-site and websession-broker.\n\nFor now it\u0027s not a big problem because we do not generate new events based on received one so we will not get into the loop.",
+      "range": {
+        "startLine": 163,
+        "startChar": 18,
+        "endLine": 163,
+        "endChar": 35
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4df97d35_32899eac",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-17T18:06:35Z",
+      "side": 1,
+      "message": "\u003e Here we are expecting instanceId, but instance id is a multi-site functionality. I remember discussion that it would be nice to have it in gerrit core. I\u0027m happy to propose that change to gerrit core. We can also create small lib with this functionality and share it between multi-site and websession-broker.\n\u003e \n\u003e For now it\u0027s not a big problem because we do not generate new events based on received one so we will not get into the loop.\n\nSorry I\u0027m not following, how would we end up in an in infinite loop?",
+      "parentUuid": "cbd610d1_003e867b",
       "range": {
         "startLine": 163,
         "startChar": 18,
