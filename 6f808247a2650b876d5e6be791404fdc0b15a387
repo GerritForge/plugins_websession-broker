@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6c5564ca_b042cc83",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-18T12:02:45Z",
+      "side": 1,
+      "message": "I agree we should follow the convention",
+      "parentUuid": "87e4d27f_a2d5a1c8",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3382d50_498df04e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
         "patchSetId": 1
@@ -120,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "7c035628_1af393ac",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-18T12:02:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8365739_e4813da7",
+      "range": {
+        "startLine": 44,
+        "startChar": 65,
+        "endLine": 44,
+        "endChar": 86
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6dc81ad_bbdca2c4",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
         "patchSetId": 1
@@ -155,6 +203,30 @@
       "side": 1,
       "message": "Are we really expecting anything that is not a websession event?",
       "parentUuid": "d6dc81ad_bbdca2c4",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 54
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7c623b3_d0e2d89e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-18T12:02:45Z",
+      "side": 1,
+      "message": "That\u0027s the thing we are not expecting but with any message bus you cannot trust the broker, someone by mistake(in configuration or even from command line) can post some event which should not be part of that topic, we have to make sure that we will not blow up",
+      "parentUuid": "8f8d3ba4_eef69703",
       "range": {
         "startLine": 66,
         "startChar": 19,
@@ -211,6 +283,30 @@
       "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9c07b4d_25b9f699",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-18T12:02:45Z",
+      "side": 1,
+      "message": "This wrapping is already done in WebSessionEvent. WebSessionEvent has following fields:\nkey - session key\nbyte[] payload - serialized Val object\nOperation operation - Add or Remove",
+      "parentUuid": "a3f050f9_e219c804",
+      "range": {
+        "startLine": 151,
+        "startChar": 15,
+        "endLine": 151,
+        "endChar": 24
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -285,6 +381,30 @@
     },
     {
       "key": {
+        "uuid": "3fb33ac0_450fc018",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-18T12:02:45Z",
+      "side": 1,
+      "message": "@Ponch we have infinite loop situation in multi-site, for some events during the processing we are emitting new events so we want to make sure that we are not processing them again and again, we are using the instance id as a event source and we are skipping events if event source and instance id are equals\n\n@Luca we are not going to have any infinite loop I just wanted to point out that we don\u0027t have instance id so I\u0027m setting it to random UUID",
+      "parentUuid": "e056acc9_21965eb6",
+      "range": {
+        "startLine": 163,
+        "startChar": 18,
+        "endLine": 163,
+        "endChar": 35
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3043c30_ffb0a9a9",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheTest.java",
         "patchSetId": 1
@@ -329,6 +449,30 @@
       "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "123f5f20_22ea8e31",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-18T12:02:45Z",
+      "side": 1,
+      "message": "Sure, the code is not that complicated is just not nice. I wanted to explain why I had to do that. The \u0027testing framework\u0027 is there so now adding new test is pretty simple",
+      "parentUuid": "4aa653cf_e0962d14",
+      "range": {
+        "startLine": 131,
+        "startChar": 14,
+        "endLine": 131,
+        "endChar": 23
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
