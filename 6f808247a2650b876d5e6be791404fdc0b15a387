@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e8365739_e4813da7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-12-18T07:59:50Z",
+      "side": 1,
+      "message": "I believe we should keep on using the way Gerrit works at the moment for serializing sessions.\nOnce we get that solution through and working, we could think about changing Gerrit for v3.2. However, that is going to be hard to be accepted as-is, because it is going to be a breaking change I believe.",
+      "parentUuid": "7e9f81cb_43bad0c3",
+      "range": {
+        "startLine": 44,
+        "startChar": 65,
+        "endLine": 44,
+        "endChar": 86
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d6dc81ad_bbdca2c4",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
         "patchSetId": 1
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8f8d3ba4_eef69703",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-12-18T07:59:50Z",
+      "side": 1,
+      "message": "Are we really expecting anything that is not a websession event?",
+      "parentUuid": "d6dc81ad_bbdca2c4",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 54
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "661d4475_45a37ad3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
         "patchSetId": 1
@@ -106,6 +154,30 @@
       "writtenOn": "2019-12-17T16:58:29Z",
       "side": 1,
       "message": "What about the REMOVE event? Why don\u0027t we need to propagate them?",
+      "range": {
+        "startLine": 151,
+        "startChar": 15,
+        "endLine": 151,
+        "endChar": 24
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3f050f9_e219c804",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-12-18T07:59:50Z",
+      "side": 1,
+      "message": "I believe we would then need to wrap the Val for knowing if it is a ADD ore REMOVE session data?",
+      "parentUuid": "661d4475_45a37ad3",
       "range": {
         "startLine": 151,
         "startChar": 15,
