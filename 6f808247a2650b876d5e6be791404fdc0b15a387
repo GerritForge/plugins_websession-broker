@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "6103d89e_eadba005",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-18T12:38:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6c5564ca_b042cc83",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3382d50_498df04e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
         "patchSetId": 1
@@ -239,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "76f0208f_eac6f2ae",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-18T12:38:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f7c623b3_d0e2d89e",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 54
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "661d4475_45a37ad3",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
         "patchSetId": 1
@@ -402,6 +450,30 @@
       "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aae3819d_5327ac21",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-18T12:38:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3fb33ac0_450fc018",
+      "range": {
+        "startLine": 163,
+        "startChar": 18,
+        "endLine": 163,
+        "endChar": 35
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
