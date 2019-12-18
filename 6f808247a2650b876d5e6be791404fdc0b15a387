@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "87e4d27f_a2d5a1c8",
+        "filename": "BUILD",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-12-18T09:31:25Z",
+      "side": 1,
+      "message": "It is actually a broker of sessions across the cluster, isn\u0027t it?\n\nIt would be best for discoverability to keep the websession-broker to mimic the websession-flatfile naming:\n- websession-flatfile \u003d\u003e websession based on flat-file storage\n- websession-broker \u003d\u003e websession based on broker storage",
+      "parentUuid": "2bd36eb1_4985e7e1",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e3382d50_498df04e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
         "patchSetId": 1
@@ -237,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "e056acc9_21965eb6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-12-18T09:31:25Z",
+      "side": 1,
+      "message": "Yes, we should not end up in any infinite loop IMHO: we just store sessions at sign-in and read sessions when loading them into cache.",
+      "parentUuid": "4df97d35_32899eac",
+      "range": {
+        "startLine": 163,
+        "startChar": 18,
+        "endLine": 163,
+        "endChar": 35
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3043c30_ffb0a9a9",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheTest.java",
         "patchSetId": 1
@@ -248,6 +296,30 @@
       "writtenOn": "2019-12-17T14:49:55Z",
       "side": 1,
       "message": "Similar problem to json serialization. Val class is writen in that way that it\u0027s really hard to write unit tests for a web-session cache. Constructor of Val is protected and all factory methods in WebSessionManager are protected as well. The only was I figure out is to actually populate the cache and get the value from there. Websession-flatfile is following similar approach",
+      "range": {
+        "startLine": 131,
+        "startChar": 14,
+        "endLine": 131,
+        "endChar": 23
+      },
+      "revId": "6f808247a2650b876d5e6be791404fdc0b15a387",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4aa653cf_e0962d14",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2019-12-18T09:31:25Z",
+      "side": 1,
+      "message": "Don\u0027t get too mad with testing if that brings too much complexity. If tests are more complex than the code, which one is more likely to break? Remember that tests are the only part of the code that isn\u0027t tested at all :-)",
+      "parentUuid": "c3043c30_ffb0a9a9",
       "range": {
         "startLine": 131,
         "startChar": 14,
