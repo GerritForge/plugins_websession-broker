@@ -27,12 +27,18 @@ import com.gerritforge.gerrit.eventbroker.BrokerApi;
 import com.gerritforge.gerrit.eventbroker.EventMessage;
 import com.gerritforge.gerrit.eventbroker.EventMessage.Header;
 import com.google.common.cache.Cache;
+import com.google.common.collect.Maps;
 import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSessionManager.Val;
+import com.google.gerrit.server.config.PluginConfig;
+import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.events.Event;
 import com.googlesource.gerrit.plugins.websession.broker.BrokerBasedWebSessionCache.WebSessionEvent;
 import com.googlesource.gerrit.plugins.websession.broker.BrokerBasedWebSessionCache.WebSessionEvent.Operation;
+import com.googlesource.gerrit.plugins.websession.broker.util.TimeMachine;
+import java.time.Instant;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentMap;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,6 +52,8 @@ public class BrokerBasedWebSessionCacheTest {
 
   private static final int DEFAULT_ACCOUNT_ID = 1000000;
   private static final String KEY = "aSceprtma6B0qZ0hKxXHvQ5iyfUhCcFXxG";
+  private static final String PLUGIN_NAME = "websession-broker";
+
   private byte[] emptyPayload = new byte[] {-84, -19, 0, 5, 112};
   byte[] defaultPayload =
       new byte[] {
@@ -61,6 +69,9 @@ public class BrokerBasedWebSessionCacheTest {
 
   @Mock BrokerApi brokerApi;
   @Mock Cache<String, Val> cache;
+  @Mock TimeMachine timeMachine;
+  @Mock PluginConfigFactory cfg;
+  @Mock PluginConfig pluginConfig;
   @Captor ArgumentCaptor<EventMessage> eventCaptor;
   @Captor ArgumentCaptor<Val> valCaptor;
 
@@ -68,8 +79,12 @@ public class BrokerBasedWebSessionCacheTest {
 
   @Before
   public void setup() {
+    when(pluginConfig.getString("webSessionTopic", "gerrit_web_session"))
+        .thenReturn("gerrit_web_session");
+    when(cfg.getFromGerritConfig(PLUGIN_NAME)).thenReturn(pluginConfig);
+    when(timeMachine.now()).thenReturn(Instant.EPOCH);
     DynamicItem<BrokerApi> item = DynamicItem.itemOf(BrokerApi.class, brokerApi);
-    objectUnderTest = new BrokerBasedWebSessionCache(cache, "web_session_topic", item);
+    objectUnderTest = new BrokerBasedWebSessionCache(cache, item, timeMachine, cfg, PLUGIN_NAME);
   }
 
   @Test
@@ -146,6 +161,34 @@ public class BrokerBasedWebSessionCacheTest {
     objectUnderTest.processMessage(eventMessage);
 
     verifyZeroInteractions(cache);
+  }
+
+  @Test
+  public void shouldSkipCacheUpdateWhenSessionExpired() {
+    when(timeMachine.now()).thenReturn(Instant.MAX);
+    EventMessage eventMessage = createEventMessage();
+    objectUnderTest.processMessage(eventMessage);
+
+    verifyZeroInteractions(cache);
+  }
+
+  @Test
+  public void shouldCleanupExpiredSessions() {
+    when(timeMachine.now()).thenReturn(Instant.MIN, Instant.MAX);
+
+    EventMessage eventMessage = createEventMessage();
+
+    objectUnderTest.processMessage(eventMessage);
+    verify(cache, times(1)).put(anyString(), valCaptor.capture());
+    assertThat(valCaptor.getValue()).isNotNull();
+
+    ConcurrentMap<String, Val> cacheMap = Maps.newConcurrentMap();
+    cacheMap.put(KEY, valCaptor.getValue());
+    when(cache.asMap()).thenReturn(cacheMap);
+
+    objectUnderTest.cleanUp();
+
+    verify(cache, times(1)).invalidate(KEY);
   }
 
   @SuppressWarnings("unchecked")

@@ -15,17 +15,11 @@
 package com.googlesource.gerrit.plugins.websession.broker;
 
 import com.gerritforge.gerrit.eventbroker.BrokerApi;
-import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.lifecycle.LifecycleModule;
-import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
-import com.google.inject.Provides;
-import com.google.inject.Singleton;
 
 public class Module extends LifecycleModule {
-  private static String DEFAULT_WEB_SESSION_TOPIC = "gerrit_web_session";
-
   DynamicItem<BrokerApi> brokerApi;
 
   @Override
@@ -38,13 +32,5 @@ public class Module extends LifecycleModule {
   @Inject(optional = true)
   public void setBrokerApi(DynamicItem<BrokerApi> brokerApi) {
     this.brokerApi = brokerApi;
-  }
-
-  @Provides
-  @Singleton
-  @WebSessionTopicName
-  public String getWebSessionTopicName(PluginConfigFactory cfg, @PluginName String pluginName) {
-    return cfg.getFromGerritConfig(pluginName)
-        .getString("webSessionTopic", DEFAULT_WEB_SESSION_TOPIC);
   }
 }
