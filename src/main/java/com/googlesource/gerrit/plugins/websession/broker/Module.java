@@ -14,10 +14,14 @@
 
 package com.googlesource.gerrit.plugins.websession.broker;
 
+import static java.util.concurrent.TimeUnit.HOURS;
+
 import com.gerritforge.gerrit.eventbroker.BrokerApi;
+import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.lifecycle.LifecycleModule;
+import com.google.gerrit.server.config.ConfigUtil;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Provides;
@@ -25,7 +29,7 @@ import com.google.inject.Singleton;
 
 public class Module extends LifecycleModule {
   private static String DEFAULT_WEB_SESSION_TOPIC = "gerrit_web_session";
-
+  private static int DEFAULT_CLEANUP_INTERVAL = 24;
   DynamicItem<BrokerApi> brokerApi;
 
   @Override
@@ -46,5 +50,14 @@ public class Module extends LifecycleModule {
   public String getWebSessionTopicName(PluginConfigFactory cfg, @PluginName String pluginName) {
     return cfg.getFromGerritConfig(pluginName)
         .getString("webSessionTopic", DEFAULT_WEB_SESSION_TOPIC);
+  }
+
+  @Provides
+  @Singleton
+  @CleanupInterval
+  Long getCleanupInterval(PluginConfigFactory cfg, @PluginName String pluginName) {
+    String fromConfig =
+        Strings.nullToEmpty(cfg.getFromGerritConfig(pluginName).getString("cleanupInterval"));
+    return HOURS.toMillis(ConfigUtil.getTimeUnit(fromConfig, DEFAULT_CLEANUP_INTERVAL, HOURS));
   }
 }
