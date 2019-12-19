@@ -27,12 +27,16 @@ import com.gerritforge.gerrit.eventbroker.BrokerApi;
 import com.gerritforge.gerrit.eventbroker.EventMessage;
 import com.gerritforge.gerrit.eventbroker.EventMessage.Header;
 import com.google.common.cache.Cache;
+import com.google.common.collect.Maps;
 import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSessionManager.Val;
 import com.google.gerrit.server.events.Event;
 import com.googlesource.gerrit.plugins.websession.broker.BrokerBasedWebSessionCache.WebSessionEvent;
 import com.googlesource.gerrit.plugins.websession.broker.BrokerBasedWebSessionCache.WebSessionEvent.Operation;
+import com.googlesource.gerrit.plugins.websession.broker.util.TimeMachine;
+import java.time.Instant;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentMap;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -61,6 +65,7 @@ public class BrokerBasedWebSessionCacheTest {
 
   @Mock BrokerApi brokerApi;
   @Mock Cache<String, Val> cache;
+  @Mock TimeMachine timeMachine;
   @Captor ArgumentCaptor<EventMessage> eventCaptor;
   @Captor ArgumentCaptor<Val> valCaptor;
 
@@ -68,8 +73,9 @@ public class BrokerBasedWebSessionCacheTest {
 
   @Before
   public void setup() {
+    when(timeMachine.now()).thenReturn(Instant.EPOCH);
     DynamicItem<BrokerApi> item = DynamicItem.itemOf(BrokerApi.class, brokerApi);
-    objectUnderTest = new BrokerBasedWebSessionCache(cache, "web_session_topic", item);
+    objectUnderTest = new BrokerBasedWebSessionCache(cache, "web_session_topic", item, timeMachine);
   }
 
   @Test
@@ -146,6 +152,34 @@ public class BrokerBasedWebSessionCacheTest {
     objectUnderTest.processMessage(eventMessage);
 
     verifyZeroInteractions(cache);
+  }
+
+  @Test
+  public void shouldSkipCacheUpdateWhenSessionExpired() {
+    when(timeMachine.now()).thenReturn(Instant.MAX);
+    EventMessage eventMessage = createEventMessage();
+    objectUnderTest.processMessage(eventMessage);
+
+    verifyZeroInteractions(cache);
+  }
+
+  @Test
+  public void shouldCleanupExpiredSessions() {
+    when(timeMachine.now()).thenReturn(Instant.MIN, Instant.MAX);
+
+    EventMessage eventMessage = createEventMessage();
+
+    objectUnderTest.processMessage(eventMessage);
+    verify(cache, times(1)).put(anyString(), valCaptor.capture());
+    assertThat(valCaptor.getValue()).isNotNull();
+
+    ConcurrentMap<String, Val> cacheMap = Maps.newConcurrentMap();
+    cacheMap.put(KEY, valCaptor.getValue());
+    when(cache.asMap()).thenReturn(cacheMap);
+
+    objectUnderTest.cleanUp();
+
+    verify(cache, times(1)).invalidate(KEY);
   }
 
   @SuppressWarnings("unchecked")

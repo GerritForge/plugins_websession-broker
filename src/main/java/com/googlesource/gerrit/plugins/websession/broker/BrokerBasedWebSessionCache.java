@@ -21,6 +21,7 @@ import com.google.common.cache.CacheStats;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.common.Nullable;
+import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSessionManager;
 import com.google.gerrit.httpd.WebSessionManager.Val;
@@ -28,11 +29,13 @@ import com.google.gerrit.server.events.Event;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
+import com.googlesource.gerrit.plugins.websession.broker.util.TimeMachine;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.time.Instant;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
@@ -41,23 +44,26 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ExecutionException;
 
 @Singleton
-public class BrokerBasedWebSessionCache implements Cache<String, WebSessionManager.Val> {
+public class BrokerBasedWebSessionCache
+    implements Cache<String, WebSessionManager.Val>, LifecycleListener {
 
   private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
   Cache<String, Val> cache;
   String webSessionTopicName;
   DynamicItem<BrokerApi> brokerApi;
+  TimeMachine timeMachine;
 
   @Inject
   public BrokerBasedWebSessionCache(
       @Named(WebSessionManager.CACHE_NAME) Cache<String, Val> cache,
       @WebSessionTopicName String webSessionTopicName,
-      DynamicItem<BrokerApi> brokerApi) {
+      DynamicItem<BrokerApi> brokerApi,
+      TimeMachine timeMachine) {
     this.cache = cache;
     this.webSessionTopicName = webSessionTopicName;
     this.brokerApi = brokerApi;
-    this.brokerApi.get().receiveAsync(webSessionTopicName, this::processMessage);
+    this.timeMachine = timeMachine;
   }
 
   protected void processMessage(EventMessage message) {
@@ -73,8 +79,12 @@ public class BrokerBasedWebSessionCache implements Cache<String, WebSessionManag
       case ADD:
         try (ByteArrayInputStream in = new ByteArrayInputStream(event.payload);
             ObjectInputStream inputStream = new ObjectInputStream(in)) {
+          Val value = (Val) inputStream.readObject();
+          Instant expires = Instant.ofEpochMilli(value.getExpiresAt());
+          if (expires.isAfter(timeMachine.now())) {
+            cache.put(event.key, value);
+          }
 
-          cache.put(event.key, (Val) inputStream.readObject());
         } catch (IOException | ClassNotFoundException e) {
           logger.atSevere().withCause(e).log(
               "Malformed event '%s': [Exception: %s]", message.getHeader());
@@ -153,7 +163,10 @@ public class BrokerBasedWebSessionCache implements Cache<String, WebSessionManag
 
   @Override
   public void cleanUp() {
-    cache.cleanUp();
+    Instant now = timeMachine.now();
+    cache.asMap().entrySet().stream()
+        .filter(entry -> Instant.ofEpochMilli(entry.getValue().getExpiresAt()).isBefore(now))
+        .forEach(entry -> cache.invalidate(entry.getKey()));
   }
 
   private void sendEvent(String key, Val value, WebSessionEvent.Operation operation) {
@@ -198,4 +211,13 @@ public class BrokerBasedWebSessionCache implements Cache<String, WebSessionManag
       this.operation = operation;
     }
   }
+
+  @Override
+  public void start() {
+    brokerApi.get().receiveAsync(webSessionTopicName, this::processMessage);
+    brokerApi.get().replayAllEvents(webSessionTopicName);
+  }
+
+  @Override
+  public void stop() {}
 }
