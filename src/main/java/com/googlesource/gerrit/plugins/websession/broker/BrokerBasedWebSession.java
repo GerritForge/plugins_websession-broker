@@ -15,6 +15,7 @@
 package com.googlesource.gerrit.plugins.websession.broker;
 
 import com.google.gerrit.extensions.annotations.RootRelative;
+import com.google.gerrit.extensions.events.LifecycleListener;
 import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.CacheBasedWebSession;
 import com.google.gerrit.httpd.WebSession;
@@ -26,8 +27,10 @@ import com.google.gerrit.server.config.AuthConfig;
 import com.google.gerrit.server.events.EventTypes;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.google.inject.internal.UniqueAnnotations;
 import com.google.inject.servlet.RequestScoped;
 import com.google.inject.servlet.ServletScopes;
+import java.lang.annotation.Annotation;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -43,6 +46,14 @@ public class BrokerBasedWebSession extends CacheBasedWebSession {
       DynamicItem.bind(binder(), WebSession.class)
           .to(BrokerBasedWebSession.class)
           .in(RequestScoped.class);
+
+      listener(BrokerBasedWebSessionCache.class);
+      listener(BrokerBasedWebSessionCacheCleaner.class);
+    }
+
+    private void listener(Class<? extends LifecycleListener> classObj) {
+      final Annotation id = UniqueAnnotations.create();
+      bind(LifecycleListener.class).annotatedWith(id).to(classObj);
     }
   }
 
