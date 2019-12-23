@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5db0e950_a14656f2",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T11:32:41Z",
+      "side": 1,
+      "message": "typo Skipping",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 18
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4c0906a_6d387872",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T11:32:41Z",
+      "side": 1,
+      "message": "nit: Shall we add a log here to catch the unlucky event of an event which is not ADD or REMOVE?",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 5
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07257e44_a0d412e8",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T11:32:41Z",
+      "side": 1,
+      "message": "typo: particularly",
+      "range": {
+        "startLine": 3,
+        "startChar": 45,
+        "endLine": 3,
+        "endChar": 55
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc23cf07_1abde3d9",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T11:32:41Z",
+      "side": 1,
+      "message": "Seems like you need to have Kafka installed on all the sites from this sentence. IS that what you meant?",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "214a575e_76e16abf",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T11:32:41Z",
+      "side": 1,
+      "message": "Unless the way of building it is different from a standard plugin, we should probably refer to the standard plugin build documentation.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd933b1d_84eccfd8",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T11:32:41Z",
+      "side": 1,
+      "message": "tab \u003d\u003e space",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 18,
+        "endChar": 2
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d969d011_0e80c054",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T11:32:41Z",
+      "side": 1,
+      "message": "tab \u003d\u003e space",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 1
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b42266b_e3125b44",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T11:32:41Z",
+      "side": 1,
+      "message": "Where is this 1000000 coming from?",
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
