@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "d0f1b430_e589cda6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T15:23:54Z",
+      "side": 1,
+      "message": "Since process message is an important method I believe extra safety won\u0027t hurt. It is true that ADD or REMOVE are the only event types, but any other \"else if\" can be added here and, since in Java there is no concept of exhaustive pattern matching, we cant\u0027 be sure that if somebody will add a message type will also add some logic here.",
+      "parentUuid": "9c8195e6_52b9a4eb",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 5
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07257e44_a0d412e8",
         "filename": "src/main/resources/Documentation/about.md",
         "patchSetId": 3
@@ -190,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "91358d17_690b80e6",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T15:23:54Z",
+      "side": 1,
+      "message": "A ok I understand. So what about something like: \"A message broker implementation has to be deployed...\"?",
+      "parentUuid": "42ff6801_90a7c463",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "214a575e_76e16abf",
         "filename": "src/main/resources/Documentation/build.md",
         "patchSetId": 3
@@ -225,6 +273,30 @@
       "side": 1,
       "message": "What is the standard build documentation?:) Do we have one?",
       "parentUuid": "214a575e_76e16abf",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1ab5966_7bd16ef5",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2019-12-23T15:23:54Z",
+      "side": 1,
+      "message": "https://gerrit-review.googlesource.com/Documentation/dev-build-plugins.html#_bazel_in_tree_driven",
+      "parentUuid": "04177a3f_458f3c97",
       "range": {
         "startLine": 1,
         "startChar": 0,
