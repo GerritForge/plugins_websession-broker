@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6e88b289_9b5788a8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-23T13:35:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5db0e950_a14656f2",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 18
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4c0906a_6d387872",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-23T11:32:41Z",
       "side": 1,
       "message": "nit: Shall we add a log here to catch the unlucky event of an event which is not ADD or REMOVE?",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 5
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c8195e6_52b9a4eb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-23T13:35:06Z",
+      "side": 1,
+      "message": "Hmm I don\u0027t know tbh WebSessionEvent.Operation is an enum so it can have only ADD or REMOVE. If someone will add new one then the logic needs to implemented.",
+      "parentUuid": "b4c0906a_6d387872",
       "range": {
         "startLine": 71,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e2a1c4f7_92362896",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-23T13:35:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07257e44_a0d412e8",
+      "range": {
+        "startLine": 3,
+        "startChar": 45,
+        "endLine": 3,
+        "endChar": 55
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc23cf07_1abde3d9",
         "filename": "src/main/resources/Documentation/about.md",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2019-12-23T11:32:41Z",
       "side": 1,
       "message": "Seems like you need to have Kafka installed on all the sites from this sentence. IS that what you meant?",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42ff6801_90a7c463",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-23T13:35:06Z",
+      "side": 1,
+      "message": "We need message broker which is implementing events-broker lib. For now we have just Kafka implementation but in the future we will have more",
+      "parentUuid": "fc23cf07_1abde3d9",
       "range": {
         "startLine": 10,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "04177a3f_458f3c97",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-23T13:35:06Z",
+      "side": 1,
+      "message": "What is the standard build documentation?:) Do we have one?",
+      "parentUuid": "214a575e_76e16abf",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd933b1d_84eccfd8",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 3
@@ -137,6 +257,30 @@
       "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1938f389_767cdc4c",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-23T13:35:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd933b1d_84eccfd8",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 18,
+        "endChar": 2
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "bdc86c0a_29d3073b",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-23T13:35:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d969d011_0e80c054",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 1
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b42266b_e3125b44",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheTest.java",
         "patchSetId": 3
@@ -177,6 +345,24 @@
       "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "025eb056_42343222",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-23T13:35:06Z",
+      "side": 1,
+      "message": "it is serialized in defauldPayload, I will move that to constant",
+      "parentUuid": "0b42266b_e3125b44",
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
