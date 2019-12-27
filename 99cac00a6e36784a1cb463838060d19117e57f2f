@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "c0fcd36c_5b9b49c9",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-27T11:40:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f1b430_e589cda6",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 5
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07257e44_a0d412e8",
         "filename": "src/main/resources/Documentation/about.md",
         "patchSetId": 3
@@ -238,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "6d9a06a3_5ffca96f",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-27T11:40:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91358d17_690b80e6",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 46
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "214a575e_76e16abf",
         "filename": "src/main/resources/Documentation/build.md",
         "patchSetId": 3
@@ -306,6 +354,30 @@
       "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f32c5216_e25b9002",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-27T11:40:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1ab5966_7bd16ef5",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "99cac00a6e36784a1cb463838060d19117e57f2f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
