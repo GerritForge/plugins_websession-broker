@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ca2efb5_3848ca1b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheCleaner.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-30T09:22:02Z",
+      "side": 1,
+      "message": "I\u0027ve took this approach from websession-flatfile I thought it\u0027s a nice way of doing that. But yes it can be replaced with simple inject of the configuration. I will do it now",
+      "parentUuid": "8aa326c3_86bb7fda",
+      "range": {
+        "startLine": 62,
+        "startChar": 6,
+        "endLine": 62,
+        "endChar": 22
+      },
+      "revId": "b857510820a8f237de6be0c80ca03781e83ee09d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b84f3f21_18febe02",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheCleanerTest.java",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-28T22:07:25Z",
       "side": 1,
       "message": "This is also overkill, we are not aiming at testing everything, including the toString() that are not directly related to the functionality.\n\nWe should focus on the API and the service that the app provides and not testing the internals IMHO.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 3
+      },
+      "revId": "b857510820a8f237de6be0c80ca03781e83ee09d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6a2bde5_cbe31c1e",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheCleanerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-30T09:22:02Z",
+      "side": 1,
+      "message": "Clean up functionality is really similar to websession-flatfile one so I\u0027ve just copied all test cases and added some. This one was copied I will remove it",
+      "parentUuid": "b84f3f21_18febe02",
       "range": {
         "startLine": 74,
         "startChar": 0,
