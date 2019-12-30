@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "64c9249b_1ea2a47d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheCleaner.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-30T10:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ca2efb5_3848ca1b",
+      "range": {
+        "startLine": 62,
+        "startChar": 6,
+        "endLine": 62,
+        "endChar": 22
+      },
+      "revId": "b857510820a8f237de6be0c80ca03781e83ee09d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b84f3f21_18febe02",
         "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheCleanerTest.java",
         "patchSetId": 3
@@ -93,6 +117,30 @@
       "revId": "b857510820a8f237de6be0c80ca03781e83ee09d",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97cd98ae_523c625b",
+        "filename": "src/test/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCacheCleanerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2019-12-30T10:55:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6a2bde5_cbe31c1e",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 3
+      },
+      "revId": "b857510820a8f237de6be0c80ca03781e83ee09d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
