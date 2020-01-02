@@ -15,7 +15,6 @@ gerrit_plugin(
     ],
     manifest_entries = [
         "Gerrit-PluginName: websession-broker",
-        "Gerrit-Module: com.googlesource.gerrit.plugins.websession.broker.Module",
         "Gerrit-HttpModule: com.googlesource.gerrit.plugins.websession.broker.BrokerBasedWebSession$Module",
         "Implementation-Title: Broker WebSession",
         "Implementation-URL: https://review.gerrithub.io/admin/repos/GerritForge/plugins_websession-broker",
