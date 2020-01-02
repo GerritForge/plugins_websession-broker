@@ -13,5 +13,17 @@ For the masters:
 
 * Install and configure @PLUGIN@ plugin
 
+### Standalone installation
+
+A message broker implementation plugin requires message broker dynamic item setup.
+To fulfil this requirement websession-broker plugin needs to be installed as
+a library module in the `$GERRIT_SITE/lib`directory of all the masters. And following
+property must be added to `$GERRIT_SITE/etc/gerrit.config`
+
+```
+[gerrit]
+    installModule = com.googlesource.gerrit.plugins.websession.broker.Module
+```
+
 For further information and supported options, refer to [config](config.md)
 documentation.
