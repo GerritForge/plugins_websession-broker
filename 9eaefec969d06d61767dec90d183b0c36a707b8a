@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baee85c9_b6d7dfb7",
+        "filename": "src/main/resources/Documentation/about.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1012541
+      },
+      "writtenOn": "2020-01-09T20:07:32Z",
+      "side": 1,
+      "message": "What about:\n\nevents-broker needs to be installed as a library module in all the masters\u0027 `$GERRIT_SITE/lib` directory and the following property must be added to the `$GERRIT_SITE/etc/gerrit.config`",
+      "range": {
+        "startLine": 16,
+        "startChar": 29,
+        "endLine": 18,
+        "endChar": 76
+      },
+      "revId": "9eaefec969d06d61767dec90d183b0c36a707b8a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
