@@ -22,6 +22,30 @@
       "revId": "624dad5a384ebc486c801ea8d7c7d0ba821fa01c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31b7a7fc_ab6fa86c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/websession/broker/BrokerBasedWebSessionCache.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1005270
+      },
+      "writtenOn": "2020-01-13T07:38:36Z",
+      "side": 1,
+      "message": "I\u0027m not sure that I got that? This line is not something I\u0027ve added to the merge it\u0027s the code from stable-3.0",
+      "parentUuid": "d59c5f24_4227141b",
+      "range": {
+        "startLine": 227,
+        "startChar": 39,
+        "endLine": 227,
+        "endChar": 72
+      },
+      "revId": "624dad5a384ebc486c801ea8d7c7d0ba821fa01c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
